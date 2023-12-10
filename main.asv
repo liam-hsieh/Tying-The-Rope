@@ -1,0 +1,26 @@
+clear;  % Clear workspace variables
+clc;    % Clear command window
+clear global;  % Clear global variables
+
+tic;  % Start measuring elapsed time
+
+% Create an instance of the Tying_The_Rope class (target service
+% level,MaxRound,number of scenarios)
+TTR = Tying_The_Rope(0, 20, 1000);
+
+% Generate random demand data
+TTR.CreateRandDemand();
+
+% Optimize using quarter 2 as a reference
+TTR.Optimize(2);
+
+% Display the proposed matrix
+TTR.TestifyProposedMatrix();
+
+% Export results
+TTR.ResultExport();
+
+elapsedTime = toc; % Stop measuring elapsed time
+
+disp(['Elapsed time: ' num2str(elapsedTime) ' seconds']);
+%~ = TTR.ObserveLoading('plan', 4, 0.3, true); %mat_name, quarter, cov, export

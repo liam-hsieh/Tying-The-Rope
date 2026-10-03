@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tying-the-rope"
+version = "0.1.0"
+description = "Site-product selection and qualification network optimization"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+    { name = "Liam Hsieh" }
+]
+dependencies = [
+    "numpy>=1.24.0",
+    "scipy>=1.10.0",
+    "pandas>=2.0.0",
+    "openpyxl>=3.1.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+]
+
+[project.scripts]
+tying-the-rope = "main:main"
+
+[tool.setuptools.packages.find]
+include = ["tying_the_rope*"]
+

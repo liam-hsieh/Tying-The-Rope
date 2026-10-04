@@ -36,8 +36,8 @@ Tying-The-Rope/
 │   └── examples.xlsx           # Input problem definition & configuration sheets
 ├── outputs/                    # Output directory for simulation results
 │   └── examples/
-│       ├── Outputs.xlsx        # Generated metrics, loading schedules, and progress
-│       └── RandDemand.mat      # Monte Carlo demand scenarios
+│       ├── py_Outputs.xlsx     # Generated metrics, loading schedules, and progress (py_ prefix)
+│       └── py_RandDemand.mat   # Monte Carlo demand scenarios (py_ prefix)
 ├── tying_the_rope/             # Core Python package
 │   ├── __init__.py             # Public API exports
 │   ├── config.py               # Model configuration dataclass
@@ -124,8 +124,8 @@ ttr.optimize(ref_quarter=2)
 # Testify proposed qualification network across all quarters
 ttr.testify_proposed_matrix()
 
-# Export comprehensive report to Excel
-output_path = ttr.result_export(filename="Outputs.xlsx")
+# Export comprehensive report to Excel (prefixed with py_ to preserve original)
+output_path = ttr.result_export(filename="py_Outputs.xlsx")
 print(f"Results exported to {output_path}")
 ```
 
@@ -151,5 +151,5 @@ This repository was migrated from MATLAB to Python:
 - MATLAB's `@Tying_The_Rope` object-oriented structure has been refactored into the modular Python package `tying_the_rope/`.
 - Linprog calls were ported to `scipy.optimize.linprog(method="highs")` and `scipy.optimize.milp` with substantial performance gains.
 - Monte Carlo simulation logic preserves exact truncated-normal sampling and percentile tracking ($P5, P10$, mean).
-- Output workbook format (`Outputs.xlsx`) maintains backward compatibility with the MATLAB reporting structure.
+- Python output files use the `py_` prefix (`py_Outputs.xlsx` and `py_RandDemand.mat`) so the original MATLAB output files remain untouched.
 

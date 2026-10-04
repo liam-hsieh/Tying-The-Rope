@@ -14,7 +14,7 @@ def export_results_to_excel(
     proposed_qmat: np.ndarray,
     proposed_mat_name: str = "proposed",
 ) -> Path:
-    """Exports all optimization results to an Excel workbook matching the MATLAB Outputs.xlsx structure.
+    """Exports all optimization results to an Excel workbook (e.g. py_Outputs.xlsx).
     
     Args:
         output_path: Destination .xlsx file path.

@@ -135,7 +135,7 @@ class TyingTheRope:
             self.rand_demand[q] = samples
 
         if save_mat:
-            mat_path = self.data.output_dir / "RandDemand.mat"
+            mat_path = self.data.output_dir / "py_RandDemand.mat"
             cell_array = np.empty((1, self.dims.num_quarter), dtype=object)
             for q in range(self.dims.num_quarter):
                 cell_array[0, q] = self.rand_demand[q]
@@ -477,7 +477,7 @@ class TyingTheRope:
             loading_dict[scenario_name] = sol.x_matrix
 
         if export:
-            out_file = self.data.output_dir / f"loading_{mat_name}.xlsx"
+            out_file = self.data.output_dir / f"py_loading_{mat_name}.xlsx"
             with pd.ExcelWriter(out_file, engine="openpyxl") as writer:
                 for scenario_name, alloc_mat in loading_dict.items():
                     df = pd.DataFrame(
@@ -492,9 +492,9 @@ class TyingTheRope:
     def result_export(
         self,
         output_dir: Optional[Union[str, Path]] = None,
-        filename: str = "Outputs.xlsx",
+        filename: str = "py_Outputs.xlsx",
     ) -> Path:
-        """Exports the complete simulation results into Outputs.xlsx."""
+        """Exports the complete simulation results into py_Outputs.xlsx."""
         out_dir = self.data.output_dir if output_dir is None else Path(output_dir)
         target_path = out_dir / filename
 

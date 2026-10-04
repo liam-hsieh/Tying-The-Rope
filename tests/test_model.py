@@ -91,9 +91,11 @@ def test_end_to_end_optimization(tmp_path):
         output_dir=tmp_path,
     )
 
-    # Step 1: Create random demand
-    ttr.create_rand_demand(seed=123, save_mat=False)
+    # Step 1: Create random demand and verify py_RandDemand.mat
+    ttr.create_rand_demand(seed=123, save_mat=True)
     assert len(ttr.rand_demand) == 8
+    expected_mat = tmp_path / ttr.data.version_name / "py_RandDemand.mat"
+    assert expected_mat.is_file()
 
     # Step 2: Optimize on reference quarter (using quarter index 2)
     ttr.optimize(ref_quarter=2)
@@ -104,8 +106,9 @@ def test_end_to_end_optimization(tmp_path):
     assert "proposed" in ttr.qmat
     assert proposed_name.startswith("link")
 
-    # Step 4: Export results
-    out_file = ttr.result_export(output_dir=tmp_path, filename="TestOutputs.xlsx")
+    # Step 4: Export results and verify default py_Outputs.xlsx
+    out_file = ttr.result_export(output_dir=tmp_path)
+    assert out_file.name == "py_Outputs.xlsx"
     assert out_file.is_file()
 
     # Step 5: Verify exported workbook sheets

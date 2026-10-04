@@ -116,10 +116,10 @@ Configured via [`ModelConfig`](file:///c:/Users/liamh/projects/Tying-The-Rope/ty
 
 ## 3. How to Utilize Outputs to Drive Strategic Decisions
 
-All simulation results are exported to an Excel workbook: [`Outputs.xlsx`](file:///c:/Users/liamh/projects/Tying-The-Rope/outputs/examples/Outputs.xlsx). Here is how each worksheet translates into management decisions:
+All simulation results are exported to an Excel workbook: [`py_Outputs.xlsx`](file:///c:/Users/liamh/projects/Tying-The-Rope/outputs/examples/py_Outputs.xlsx) (prefixed with `py_` to preserve the original MATLAB output intact). Here is how each worksheet translates into management decisions:
 
 ```
-Outputs.xlsx
+py_Outputs.xlsx
  ├── 1. LinkAddProgress              --> Diminishing Returns & Budget Prioritization
  ├── 2. Metrics under Recomended Qual --> Service Level & Utilization Risk Assessment
  ├── 3. Expected Loading             --> Production & Sourcing Allocation Schedule

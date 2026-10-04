@@ -16,10 +16,19 @@ Site-product qualification and selection optimization engine.
 
 ---
 
+## Documentation
+
+For a detailed walkthrough of the manufacturing flexibility problem, mathematical formulation, input parameters, and how to use the simulation outputs for business decisions, see:
+- 📖 **[Problem Formulation & Decision Framework](docs/PROBLEM_DESCRIPTION.md)**
+
+---
+
 ## Project Structure
 
 ```
 Tying-The-Rope/
+├── docs/
+│   └── PROBLEM_DESCRIPTION.md   # Problem formulation & decision guide
 ├── main.py                     # CLI entry point and execution script
 ├── pyproject.toml              # Modern PEP 621 package metadata & dependencies
 ├── requirements.txt            # Dependency specification
@@ -143,3 +152,4 @@ This repository was migrated from MATLAB to Python:
 - Linprog calls were ported to `scipy.optimize.linprog(method="highs")` and `scipy.optimize.milp` with substantial performance gains.
 - Monte Carlo simulation logic preserves exact truncated-normal sampling and percentile tracking ($P5, P10$, mean).
 - Output workbook format (`Outputs.xlsx`) maintains backward compatibility with the MATLAB reporting structure.
+
